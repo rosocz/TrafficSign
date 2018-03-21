@@ -150,14 +150,20 @@ My final model results were:
 * validation set accuracy of 0.95 
 * test set accuracy of 0.929
 
-I don't use iterative aproach and I don't think I use any well known architecture.
-
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
+First solution was taken from LeNet. Valid padding of 2 convolutional networks. 3 fully connected networks, with RELU and maxpool. It was recommended in the course.
 * What were some problems with the initial architecture?
+I was facing problem with accuracy, the model was reaching 91% only.
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+I was quite happy with the basic design of 2 covnets and 3 fully connected, I tried to add more depth, dropout to fully connected layer, I changed padding from valid to same, my idea was to prevent loosing data by padding.
 * Which parameters were tuned? How were they adjusted and why?
+Learning rate and batch size were decreased, it is general recommendation to decrease it to get better results. As I was able run code on AWS, I used 100 epochs and result were just fine.
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+I think most important is learning rate, batch size and number of epochs. Convolution layer breaks up image to smaller parts, so it can identify all specific shapes related to each sign 
+and by using whole group of sample images it finds connection between similar shapes and label. Adding dropout was not so big impact as I have seen. Removing random nodes could be more usefull for much larger neural neworks. 
+
+I don't think I use any well known architecture.
 
 If a well known architecture was chosen:
 * What architecture was chosen?
@@ -174,7 +180,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
-The first image might be difficult to classify because its a bit skew and some training sessions omit number "1" and classified it as 20km/h. Constant problem is with third image, where it's very often classified as pedestrians. This image has very low accuracy.
+The first image might be difficult to classify because its a bit skew and some training sessions omit number "1" and classified it as 20km/h. Constant problem is with third image, where it's very often classified as pedestrians. Classification of this image is not very stable.
 5th image, wild animals crossing, had low accuracy level as well, after additional augumentation activity is quite stable.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
@@ -190,7 +196,7 @@ Here are the results of the prediction:
 | Wild animals crossing			| Wild animals crossing      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 80%
+The model was able to correctly guess all 5 traffic signs, which gives an accuracy of 100%. But as I mentioned, 3rd classification is not stable. This compares favorably to the accuracy on the test set of 100%
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
