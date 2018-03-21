@@ -163,12 +163,13 @@ Learning rate and batch size were decreased, it is general recommendation to dec
 I think most important is learning rate, batch size and number of epochs. Convolution layer breaks up image to smaller parts, so it can identify all specific shapes related to each sign 
 and by using whole group of sample images it finds connection between similar shapes and label. Adding dropout was not so big impact as I have seen. Removing random nodes could be more usefull for much larger neural neworks. 
 
-I don't think I use any well known architecture.
-
 If a well known architecture was chosen:
 * What architecture was chosen?
+I used architecture of LeNet
 * Why did you believe it would be relevant to the traffic sign application?
+I worked well for character, so it could work for traffic signs as well.
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+It doesnt seems to be overfitting or underfitting, accuracy level is acceptable.
  
 
 ### Test a Model on New Images
