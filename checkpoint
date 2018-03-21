@@ -1,0 +1,2 @@
+model_checkpoint_path: "tsign"
+all_model_checkpoint_paths: "tsign"
